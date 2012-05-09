@@ -14,5 +14,6 @@
 .pow
 .rbenv/
 .rnd
-.ssh/
+.ssh
+!.ssh/config
 .viminfo
