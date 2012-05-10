@@ -9,6 +9,7 @@
 .dropbox/
 .esets/
 .gem
+.gnupg
 .lesshst
 .pow
 .rbenv/
