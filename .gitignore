@@ -1,6 +1,4 @@
-*
-!.*
-!.*/*
+/[A-Z]*
 .CFUserTextEncoding
 .DS_Store
 .Trash
@@ -10,10 +8,12 @@
 .dot.git/
 .dropbox/
 .esets/
+.gem
 .lesshst
 .pow
 .rbenv/
 .rnd
+.showoffrc
 .ssh
 !.ssh/config
 .viminfo
