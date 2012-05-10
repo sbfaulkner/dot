@@ -1,0 +1,11 @@
+alias a=alias
+alias h=history
+alias rea=". ~/.bash/plugins/aliases"
+alias tt="touch tmp/restart.txt"
+alias ttt="touch */tmp/restart.txt"
+alias u=unalias
+alias via="vi ~/.bash/plugins/aliases && rea"
+alias flushcache="dscacheutil -flushcache"
+
+alias rake="bundle exec rake"
+

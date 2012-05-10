@@ -1,0 +1,2 @@
+BREW_PREFIX="`brew --prefix`"
+[ -f $BREW_PREFIX/etc/bash_completion ] && . $BREW_PREFIX/etc/bash_completion
