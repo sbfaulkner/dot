@@ -1,4 +1,9 @@
-# enable shims and autocompletion
-eval "$(rbenv init -)"
-
-alias dot='git --git-dir=$HOME/.dot.git --work-tree=$HOME'
+if [ "$PS1" != "" ]; then
+  for f in ~/.bash/plugins/*; do
+    echo -n "."
+    source $f
+  done
+  echo 
+  
+  shopt -s histappend
+fi
