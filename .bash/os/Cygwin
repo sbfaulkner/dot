@@ -1,4 +1,4 @@
-alias clear="echo -n ^[[2J"
+alias clear="echo -n [2J"
 alias flushcache="ipconfig /flushdns"
 
 function __git_ps1() {
