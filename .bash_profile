@@ -4,7 +4,7 @@ if [ "$PS1" != "" ]; then
     echo -n "."
     source $f
   done
-  [ -f "~/.bash/os/$UNAME" ] && source "~/.bash/os/$UNAME"
+  [ -f ~/.bash/os/$UNAME ] && source ~/.bash/os/$UNAME
   echo 
   
   shopt -s histappend
