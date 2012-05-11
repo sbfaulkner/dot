@@ -1,0 +1,10 @@
+alias clear="echo -n '^[[2J'"
+
+function __git_ps1() {
+        echo ""
+}
+
+function rbenv() {
+        echo ""
+}
+

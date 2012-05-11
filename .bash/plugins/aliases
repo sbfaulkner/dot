@@ -8,4 +8,3 @@ alias via="vi ~/.bash/plugins/aliases && rea"
 alias flushcache="dscacheutil -flushcache"
 
 alias rake="bundle exec rake"
-
