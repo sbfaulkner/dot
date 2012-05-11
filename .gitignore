@@ -1,11 +1,10 @@
-/[A-Z]*
+/[A-Za-z]*
 .CFUserTextEncoding
 .DS_Store
 .Trash
 .account
 .bash_history
 .cups/
-.dot.git/
 .dropbox/
 .esets/
 .gem
