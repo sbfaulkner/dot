@@ -1,4 +1,5 @@
 /[A-Za-z]*
+.ApacheDirectoryStudio/
 .CFUserTextEncoding
 .DS_Store
 .Trash
@@ -17,4 +18,5 @@
 .showoffrc
 .ssh
 !.ssh/config
+.vagrant.d/
 .viminfo
