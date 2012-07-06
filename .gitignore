@@ -4,12 +4,14 @@
 .DS_Store
 .Trash
 .account
+.android/
 .bash_history
 .cups/
 .dropbox/
 .esets/
 .gem
 .gnupg
+.irb_history
 .lesshst
 .minttyrc
 .pow
@@ -18,5 +20,6 @@
 .showoffrc
 .ssh
 !.ssh/config
+.subversion/
 .vagrant.d/
 .viminfo
