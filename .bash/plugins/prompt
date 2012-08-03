@@ -54,6 +54,7 @@ bash_prompt() {
   [ $UID -eq "0" ] && UC=$R   # root's color
 
   PS1="$M\$(__my_ruby_version) $EMY\w$EMW\$(__git_branch)$EMY\$(__git_dirty)${NONE} $ "
+  PS1="\[\e]0;\u@\h: \w\a\]$PS1"
 }
 
 bash_prompt
