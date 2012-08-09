@@ -1,1 +1,1 @@
-[ -d /Library/Application Support/android-sdk-macosx ] && export PATH="$PATH:/Library/Application Support/android-sdk-macosx/tools:/Library/Application Support/android-sdk-macosx/platform-tools"
+[ -d "/Library/Application Support/android-sdk-macosx" ] && export PATH="$PATH:/Library/Application Support/android-sdk-macosx/tools:/Library/Application Support/android-sdk-macosx/platform-tools"
