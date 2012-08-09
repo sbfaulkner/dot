@@ -1,5 +1,5 @@
 # enable shims and autocompletion
-eval "$(rbenv init -)"
+eval "$(rbenv init - 2>/dev/null)"
 
 # path settings... maybe needed for TextMate?
 #export RBENV_ROOT=/usr/local/rbenv
