@@ -1,1 +1,5 @@
-export CDPATH=.:$HOME/Sites:$HOME/Projects:$HOME
+CDPATH=.
+[ -d $HOME/Sites ] && CDPATH=$CDPATH:$HOME/Sites
+[ -d $HOME/Projects ] && CDPATH=$CDPATH:$HOME/Projects
+CDPATH=$CDPATH:$HOME
+export CDPATH

@@ -8,7 +8,13 @@ function __git_branch {
 }
 
 function __my_ruby_version {
-  rbenv version | cut -f 1 -d " " | cut -f 1 -d "-"
+  RBENV=`which rbenv 2>/dev/null`
+  if [ $? -eq 0 ]
+  then
+    rbenv version | cut -f 1 -d " " | cut -f 1 -d "-"
+  else
+    ruby -v | cut -f 2 -d " " | cut -f 1 -d "p"
+  fi
   # local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
   # [ "$gemset" != "" ] && gemset="@$gemset"
   # local version=$(echo $MY_RUBY_HOME | awk -F'-' '{print $2}')
