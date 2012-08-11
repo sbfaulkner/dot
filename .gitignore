@@ -5,6 +5,7 @@
 .Trash
 .account
 .android/
+.bash/plugins/amazon
 .bash_history
 .cups/
 .dropbox/
