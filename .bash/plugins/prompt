@@ -1,3 +1,6 @@
+GIT_PROMPT="/usr/local/share/git-core/contrib/completion/git-prompt.sh"
+[ -f $GIT_PROMPT ] && . $GIT_PROMPT
+
 function __git_dirty {
   git diff --quiet HEAD &>/dev/null 
   [ $? == 1 ] && echo "!"
