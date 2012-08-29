@@ -16,6 +16,7 @@
 .lesshst
 .minttyrc
 .pow
+.pry_history
 .rbenv/
 .rnd
 .showoffrc
@@ -23,4 +24,5 @@
 !.ssh/config
 .subversion/
 .vagrant.d/
+.vim/.netrwhist
 .viminfo
