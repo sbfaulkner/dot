@@ -1,5 +1,6 @@
 alias clear="echo -n [2J"
 alias flushcache="ipconfig /flushdns"
+alias vagrant="vagrant.bat"
 
 function __git_ps1() {
         echo ""
