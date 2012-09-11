@@ -1,6 +1,14 @@
-# enable shims and autocompletion
-eval "$(rbenv init - 2>/dev/null)"
+# try to find rbenv
+for dir in "$HOME/.rbenv" "/usr/local/rbenv"
+do
+  if [ -x "$dir/bin/rbenv" ]
+  then
+    # add it to the PATH
+    export RBENV_ROOT="$dir"
+    export PATH="$RBENV_ROOT/bin:$PATH"
+    # enable shims and autocompletion
+    eval "$(rbenv init - 2>/dev/null)"
+    break
+  fi
+done
 
-# path settings... maybe needed for TextMate?
-#export RBENV_ROOT=/usr/local/rbenv
-#export PATH=$RBENV_ROOT/bin:$PATH
