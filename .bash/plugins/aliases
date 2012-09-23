@@ -5,5 +5,3 @@ alias tt="touch tmp/restart.txt"
 alias ttt="touch */tmp/restart.txt"
 alias u=unalias
 alias via="vi ~/.bash/plugins/aliases && rea"
-
-alias rake="bundle exec rake"

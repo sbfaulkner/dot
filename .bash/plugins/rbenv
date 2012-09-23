@@ -4,8 +4,7 @@ do
   if [ -x "$dir/bin/rbenv" ]
   then
     # add it to the PATH
-    export RBENV_ROOT="$dir"
-    export PATH="$RBENV_ROOT/bin:$PATH"
+    export PATH="$dir/bin:$PATH"
     # enable shims and autocompletion
     eval "$(rbenv init - 2>/dev/null)"
     break

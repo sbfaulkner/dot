@@ -97,5 +97,9 @@ set sw=2
 set expandtab
 set nowrap
 
-nnoremap <cr> :nohlsearch<cr>
+nnoremap <cr> :nohlsearch<cr><cr>
+
+call pathogen#infect()
+
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
