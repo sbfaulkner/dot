@@ -3,6 +3,7 @@
 .CFUserTextEncoding
 .DS_Store
 .Trash
+.Xauthority
 .account
 .android/
 .bash/plugins/amazon
