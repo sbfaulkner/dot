@@ -1,1 +1,5 @@
-[ -d "/Library/Application Support/android-sdk-macosx" ] && export PATH="$PATH:/Library/Application Support/android-sdk-macosx/tools:/Library/Application Support/android-sdk-macosx/platform-tools"
+#[ -d /opt/adt-bundle-mac-x86_64-20130729/sdk ] && export PATH="$PATH:/opt/adt-bundle-mac-x86_64-20130729/sdk/tools:/opt/adt-bundle-mac-x86_64-20130729/sdk/platform-tools"
+#[ -d /Developer/SDKs/android-sdk-macosx ] && export PATH="$PATH:/Developer/SDKs/android-sdk-macosx/tools:/Developer/SDKs/android-sdk-macosx/platform-tools"
+[ -d "/Applications/Android Studio.app/sdk" ] && export PATH="$PATH:/Applications/Android Studio.app/sdk/tools:/Applications/Android Studio.app/sdk/platform-tools"
+
+

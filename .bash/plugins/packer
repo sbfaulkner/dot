@@ -1,0 +1,2 @@
+export PATH="/usr/local/packer/bin:$PATH"
+export PACKER_CACHE_DIR="$HOME/.packer_cache"

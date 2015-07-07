@@ -1,1 +1,4 @@
 alias flushcache="dscacheutil -flushcache"
+
+PATH="./bin:$PATH"
+export PATH
