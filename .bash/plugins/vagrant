@@ -52,3 +52,5 @@ _vagrant()
 
 }
 complete -F _vagrant vagrant
+
+export VAGRANT_CWD="$HOME/vagrant"
