@@ -1,4 +1,5 @@
 CDPATH=.
+[ -d $HOME/vagrant/src ] && CDPATH=$CDPATH:$HOME/vagrant/src
 [ -d $HOME/Sites ] && CDPATH=$CDPATH:$HOME/Sites
 [ -d $HOME/Projects ] && CDPATH=$CDPATH:$HOME/Projects
 CDPATH=$CDPATH:$HOME
