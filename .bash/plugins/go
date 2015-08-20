@@ -1,3 +1,8 @@
-export GOPATH="$HOME/Projects/go"
-export PATH="$PATH:$GOPATH/bin"
-export CDPATH="$CDPATH:$GOPATH/src/github.com"
+GOPATH="$HOME/Projects/go"
+
+if [ -d "$GOPATH" ]
+then
+  export GOPATH
+  export PATH="$PATH:$GOPATH/bin"
+  export CDPATH="$CDPATH:$GOPATH/src/github.com"
+fi
