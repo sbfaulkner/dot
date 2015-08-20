@@ -1,1 +1,2 @@
 alias dot='git --git-dir=$HOME/dot.git --work-tree=$HOME'
+alias rdot='dot stash; dot pull; dot stash pop'
