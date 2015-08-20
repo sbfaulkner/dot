@@ -1,2 +1,5 @@
-export PATH="/usr/local/packer/bin:$PATH"
-export PACKER_CACHE_DIR="$HOME/.packer_cache"
+if [ -d /usr/local/packer/bin ]
+then
+  export PATH="/usr/local/packer/bin:$PATH"
+  export PACKER_CACHE_DIR="$HOME/.packer_cache"
+fi
