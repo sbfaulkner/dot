@@ -4,6 +4,7 @@ if [ "$PS1" != "" ]; then
     source $f
   done
   UNAME="`uname -o 2>/dev/null || uname -s`"
+  UNAME="`echo $UNAME | sed s@/@_@`"
   [ -f ~/.bash/os/$UNAME ] && source ~/.bash/os/$UNAME
   echo
   
