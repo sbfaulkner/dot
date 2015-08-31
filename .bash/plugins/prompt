@@ -2,7 +2,7 @@ GIT_PROMPT="/usr/local/share/git-core/contrib/completion/git-prompt.sh"
 [ -f $GIT_PROMPT ] && . $GIT_PROMPT
 
 function __git_dirty {
-  git diff --quiet HEAD &>/dev/null 
+  git diff --quiet HEAD &>/dev/null
   [ $? == 1 ] && echo "!"
 }
 
@@ -62,7 +62,7 @@ bash_prompt() {
   local UC=$W                 # user's color
   [ $UID -eq "0" ] && UC=$R   # root's color
 
-  PS1="$M\$(__my_ruby_version) $EMY\w$EMW\$(__git_branch)$EMY\$(__git_dirty)${NONE} $ "
+  PS1="$M\$(__my_ruby_version) $EMY\w$EMB\$(__git_branch)$EMY\$(__git_dirty)${NONE} $ "
   PS1="\[\e]0;\u@\h: \w\a\]$PS1"
 }
 

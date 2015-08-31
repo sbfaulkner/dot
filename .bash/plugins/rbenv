@@ -1,13 +1,15 @@
 # try to find rbenv
-for dir in "$HOME/.rbenv" "/usr/local/rbenv"
+for dir in "$HOME/.rbenv" "/usr/local/rbenv" "/usr/local"
 do
   if [ -x "$dir/bin/rbenv" ]
   then
-    # add it to the PATH
-    export PATH="$dir/bin:$PATH"
+    if [ "$dir" != "/usr/local" ]
+    then
+      # add it to the PATH
+      export PATH="$dir/bin:$PATH"
+    fi
     # enable shims and autocompletion
     eval "$(rbenv init - 2>/dev/null)"
     break
   fi
 done
-
