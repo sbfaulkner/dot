@@ -6,3 +6,7 @@ alias tt="touch tmp/restart.txt"
 alias ttt="touch */tmp/restart.txt"
 alias u=unalias
 alias via="vi -f ~/.bash/plugins/aliases && rea"
+
+function who_worked_on() {
+  git log --format="%an" -- "$@" | sort | uniq -c | sort -rn
+}
