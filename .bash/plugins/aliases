@@ -10,3 +10,11 @@ alias via="vi -f ~/.bash/plugins/aliases && rea"
 function who_worked_on() {
   git log --format="%an" -- "$@" | sort | uniq -c | sort -rn
 }
+
+function cookrev() {
+  local _servers="${*:-1 2 3 4 5 6 7}"
+  for i in $_servers
+  do
+    echo brochure-app$i: `ssh brochure-app$i 'cd /var/chef/git; git rev-parse HEAD'`
+  done
+}

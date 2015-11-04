@@ -1,1 +1,62 @@
 export BROCHURE2_PORT=4000
+
+function _chbrochure_resolve() {
+  resolveip $1 | awk '{ print $6 }'
+}
+
+function _chbrochure_host() {
+  case $1 in
+  app4)
+    echo 'brochure-app4.ec2.shopify.com'
+    ;;
+  production)
+    echo 'origin.www.shopify.com'
+    ;;
+  staging)
+    echo 'brochure.staging.shopify.io'
+    ;;
+  *)
+    echo $1
+    ;;
+  esac
+}
+
+function _chbrochure_set() {
+  local _temphosts=`mktemp -t chbrochure.hosts`
+
+  cat /etc/hosts | sed -e "/brochure2-hosts-start/,/brochure2-hosts-end/d" >$_temphosts
+
+  if [ "$1" != "production" ]
+  then
+    local _host=`_chbrochure_host $1`
+    local _ip=`_chbrochure_resolve $_host | head -n1`
+
+    cat >>$_temphosts <<HOSTS
+## brochure2-hosts-start
+$_ip  www.shopify.com www.shopify.ca www.shopify.co.nz www.shopify.co.uk www.shopify.com.au www.shopify.in es.shopify.com pt.shopify.com
+## brochure2-hosts-end
+HOSTS
+  fi
+
+  sudo cp $_temphosts /etc/hosts
+  rm -f $_temphosts
+}
+
+function _chbrochure_which() {
+  local _ip=`_chbrochure_resolve www.shopify.com | head -n1`
+
+  for _env in app4 production staging
+  do
+    _chbrochure_resolve `_chbrochure_host $_env` | grep -q $_ip
+    echo "`echo $? | tr '01' '* '` $_env"
+  done
+}
+
+function chbrochure() {
+  if [ $# -eq 0 ]
+  then
+    _chbrochure_which
+  else
+    _chbrochure_set $1
+  fi
+}
