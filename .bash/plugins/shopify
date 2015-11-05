@@ -31,9 +31,11 @@ function _chbrochure_set() {
     local _host=`_chbrochure_host $1`
     local _ip=`_chbrochure_resolve $_host | head -n1`
 
+    shift
+
     cat >>$_temphosts <<HOSTS
 ## brochure2-hosts-start
-$_ip  www.shopify.com www.shopify.ca www.shopify.co.nz www.shopify.co.uk www.shopify.com.au www.shopify.in es.shopify.com pt.shopify.com
+$_ip  www.shopify.com www.shopify.ca www.shopify.co.nz www.shopify.co.uk www.shopify.com.au www.shopify.in es.shopify.com pt.shopify.com $*
 ## brochure2-hosts-end
 HOSTS
   fi
@@ -57,6 +59,6 @@ function chbrochure() {
   then
     _chbrochure_which
   else
-    _chbrochure_set $1
+    _chbrochure_set $*
   fi
 }
