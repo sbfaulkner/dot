@@ -13,7 +13,7 @@ function _chbrochure_host() {
     echo 'origin.www.shopify.com'
     ;;
   staging)
-    echo 'brochure.staging.shopify.io'
+    echo 'brochure-app1.staging.ec2.shopify.com'
     ;;
   *)
     echo $1
@@ -35,7 +35,7 @@ function _chbrochure_set() {
 
     cat >>$_temphosts <<HOSTS
 ## brochure2-hosts-start
-$_ip  www.shopify.com www.shopify.ca www.shopify.co.nz www.shopify.co.uk www.shopify.com.au www.shopify.in es.shopify.com pt.shopify.com $*
+$_ip  www.shopify.com www.shopify.ca www.shopify.co.ng www.shopify.co.nz www.shopify.co.uk www.shopify.co.za www.shopify.com.au www.shopify.com.sg www.shopify.in www.shopify.my es.shopify.com fr.shopify.ca fr.shopify.com pt.shopify.com wholesale.shopify.com $*
 ## brochure2-hosts-end
 HOSTS
   fi

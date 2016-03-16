@@ -1,3 +1,5 @@
+export IGNOREEOF=Y
+
 GIT_PROMPT="/usr/local/share/git-core/contrib/completion/git-prompt.sh"
 [ -f $GIT_PROMPT ] && . $GIT_PROMPT
 

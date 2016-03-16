@@ -1,6 +1,8 @@
 alias a=alias
 alias ggrep="git rev-list --all | xargs git grep"
 alias h=history
+alias hcurl="curl -o /dev/null -v -s -S -H 'User-Agent: curl/brent'"
+alias knife='BUNDLE_GEMFILE=~/.chef/Gemfile bundle exec knife'
 alias rea=". ~/.bash/plugins/aliases"
 alias tt="touch tmp/restart.txt"
 alias ttt="touch */tmp/restart.txt"
@@ -12,9 +14,25 @@ function who_worked_on() {
 }
 
 function cookrev() {
+  local _name="${1:-brochure-app}"
+  shift
   local _servers="${*:-1 2 3 4 5 6 7}"
   for i in $_servers
   do
-    echo brochure-app$i: `ssh brochure-app$i 'cd /var/chef/git; git rev-parse HEAD'`
+    echo ${_name}$i: `ssh ${_name}$i 'cd /var/chef/git; git rev-parse HEAD'`
   done
 }
+
+alias okta_aws_login="$HOME/src/okta_aws_login/okta_aws_login.py"
+
+function charles() {
+  export http_proxy=localhost:8888
+  export https_proxy=localhost:8888
+
+  open -a Charles
+  $*
+
+  unset https_proxy
+  unset http_proxy
+}
+
