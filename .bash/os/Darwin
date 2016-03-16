@@ -2,3 +2,5 @@ alias flushcache="dscacheutil -flushcache"
 
 PATH="./bin:$PATH"
 export PATH
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
