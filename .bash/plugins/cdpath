@@ -1,5 +1,5 @@
 CDPATH=.
-for dir in src/github.com/Shopify src work Sites Projects
+for dir in src/github.com/* src work Sites Projects
 do
   [ -d $HOME/$dir ] && CDPATH=$CDPATH:$HOME/$dir
 done

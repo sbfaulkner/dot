@@ -1,4 +1,0 @@
----
-BUNDLE_GEM__MIT: '0'
-BUNDLE_GEM__TEST: rspec
-BUNDLE_JOBS: '3'

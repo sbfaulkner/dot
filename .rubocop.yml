@@ -1,12 +1,21 @@
+AllCops:
+  TargetRubyVersion: 2.2
+
 Lint/AssignmentInCondition:
   Enabled: false
+
+Lint/EndAlignment:
+  AlignWith: variable
 
 Metrics/LineLength:
   Max: 120
 
+Style/CaseIndentation:
+  IndentWhenRelativeTo: end
+
 Style/Documentation:
   Enabled: false
 
-Style/SignalException:
-  Enabled: false
-
+Style/TrailingCommaInLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: comma

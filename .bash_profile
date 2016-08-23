@@ -10,4 +10,3 @@ if [ "$PS1" != "" ]; then
   
   shopt -s histappend
 fi
-

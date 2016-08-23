@@ -5,8 +5,8 @@ function _chbrochure_resolve() {
 
 function _chbrochure_host() {
   case $1 in
-  app4)
-    echo 'brochure-app4.ec2.shopify.com'
+  appx)
+    echo 'brochure-appx.ec2.shopify.com'
     ;;
   production)
     echo 'origin.www.shopify.com'
@@ -27,16 +27,20 @@ function _chbrochure_set() {
 
   if [ "$1" != "production" ]
   then
+    local _env=$1
     local _host=`_chbrochure_host $1`
     local _ip=`_chbrochure_resolve $_host | head -n1`
 
     shift
 
-    cat >>$_temphosts <<HOSTS
-## brochure2-hosts-start
-$_ip  www.shopify.com www.shopify.ca www.shopify.co.ng www.shopify.co.nz www.shopify.co.uk www.shopify.co.za www.shopify.com.au www.shopify.com.sg www.shopify.in www.shopify.my es.shopify.com fr.shopify.ca fr.shopify.com pt.shopify.com wholesale.shopify.com $*
-## brochure2-hosts-end
-HOSTS
+    echo "## brochure2-hosts-start: $_env" >>$_temphosts
+
+    for host in es.shopify.com fr.shopify.ca fr.shopify.com pt.shopify.com ru.shopify.com wholesale.shopify.com www.shopify.ca www.shopify.co.id www.shopify.co.ng www.shopify.co.nz www.shopify.co.uk www.shopify.co.za www.shopify.com www.shopify.com.au www.shopify.com.sg www.shopify.in www.shopify.my $*
+    do
+      echo "$_ip $host" >>$_temphosts
+    done
+
+    echo "## brochure2-hosts-end" >>$_temphosts
   fi
 
   sudo cp $_temphosts /etc/hosts
@@ -44,11 +48,13 @@ HOSTS
 }
 
 function _chbrochure_which() {
-  local _ip=`_chbrochure_resolve www.shopify.com | head -n1`
+  local _current=`grep brochure2-hosts-start /etc/hosts | sed -e 's/## brochure2-hosts-start: //'`
 
-  for _env in app4 production staging
+  _current=${_current:-production}
+
+  for _env in appx production staging
   do
-    _chbrochure_resolve `_chbrochure_host $_env` | grep -q $_ip
+    [ $_current == $_env ]
     echo "`echo $? | tr '01' '* '` $_env"
   done
 }

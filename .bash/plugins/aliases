@@ -8,6 +8,7 @@ alias tt="touch tmp/restart.txt"
 alias ttt="touch */tmp/restart.txt"
 alias u=unalias
 alias via="vi -f ~/.bash/plugins/aliases && rea"
+alias glog="git log --graph --pretty=oneline"
 
 function who_worked_on() {
   git log --format="%an" -- "$@" | sort | uniq -c | sort -rn
@@ -16,14 +17,14 @@ function who_worked_on() {
 function cookrev() {
   local _name="${1:-brochure-app}"
   shift
-  local _servers="${*:-1 2 3 4 5 6 7}"
+  local _servers="${*:-1 2 3 5 6 7 8 x}"
   for i in $_servers
   do
     echo ${_name}$i: `ssh ${_name}$i 'cd /var/chef/git; git rev-parse HEAD'`
   done
 }
 
-alias okta_aws_login="$HOME/src/okta_aws_login/okta_aws_login.py"
+alias okta_aws_login="$HOME/src/github.com/sbfaulkner/okta_aws_login/okta_aws_login.py"
 
 function charles() {
   export http_proxy=localhost:8888
@@ -34,5 +35,18 @@ function charles() {
 
   unset https_proxy
   unset http_proxy
+}
+
+function check_dns() {
+  /Users/sbfaulkner/src/github.com/Shopify/cookbooks/cookbooks/icinga/files/default/check_dns.rb origin.www.shopify.com amazon.shopify.com,buildwithshopify.com,www.buildwithshopify.com,buyable-pin.com,www.buyable-pin.com,buyable-pins.com,www.buyable-pins.com,buyablepin.com,www.buyablepin.com,buyablepins.com,www.buyablepins.com,careers.shopify.com,contest.shopify.com,dev.shopify.com,developers.shopify.com,devs.shopify.com,es.shopify.com,fr.shopify.com,hi.shopify.com,ipad-pos.shopify.com,www.jadedpixel.com,meetup.shopify.com,meetups.shopify.com,ottawahackfest.shopify.com,partner.shopify.com,partners.shopify.com,plt.me,www.plt.me,press.shopify.com,pt.shopify.com,ru.shopify.com,search.shopify.com,shopify-charge.com,www.shopify-charge.com,shopify.blackfriday,www.shopify.blackfriday,shopify.ca,www.shopify.ca,shopify.co,www.shopify.co,shopify.co.id,www.shopify.co.id,shopify.co.ke,www.shopify.co.ke,shopify.co.nz,www.shopify.co.nz,shopify.co.uk,www.shopify.co.uk,shopify.co.za,www.shopify.co.za,www.shopify.com,www.shopify.com.au,shopify.com.mx,www.shopify.com.mx,shopify.com.ng,www.shopify.com.ng,shopify.com.ph,www.shopify.com.ph,shopify.com.pt,www.shopify.com.pt,shopify.com.sg,www.shopify.com.sg,shopify.es,www.shopify.es,shopify.fm,www.shopify.fm,shopify.in,www.shopify.in,www.shopify.info,shopify.mx,www.shopify.mx,shopify.my,www.shopify.my,shopifyplus.com,www.shopifyplus.com,storecontest.com,www.storecontest.com,talent.shopify.com,ultimatedropshippingguide.com,www.ultimatedropshippingguide.com,ultimatedropshippingguide.info,www.ultimatedropshippingguide.info,ultimatedropshippingguide.net,www.ultimatedropshippingguide.net,vision.shopify.com,wholesale.shopify.com
+}
+
+function check_http_content_new() {
+  if [ $# -eq 2 ]
+  then
+    /Users/sbfaulkner/src/github.com/Shopify/cookbooks/cookbooks/icinga/files/default/check_http_new.rb -t 15 -u $1 -r $2 -f
+  else
+    /Users/sbfaulkner/src/github.com/Shopify/cookbooks/cookbooks/icinga/files/default/check_http_new.rb -t 15 -u $1 -f
+  fi
 }
 

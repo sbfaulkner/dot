@@ -1,4 +1,1 @@
-PATH="./bin:$PATH"
-export PATH
-
 alias vi=vim

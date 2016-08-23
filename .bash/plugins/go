@@ -1,8 +1,8 @@
-GOPATH="$HOME/Projects/go"
+export GOPATH=$HOME
 
-if [ -d "$GOPATH" ]
-then
-  export GOPATH
-  export PATH="$PATH:$GOPATH/bin"
-  export CDPATH="$CDPATH:$GOPATH/src/github.com"
-fi
+export PATH="$PATH:$GOPATH/bin"
+
+# TODO: suggested by homebrew... needed?
+# export PATH="$PATH:/usr/local/opt/go/libexec/bin"
+
+# export CDPATH="$CDPATH:$GOPATH/src/github.com"
