@@ -1,7 +1,8 @@
 CDPATH=.
-for dir in src/github.com/* src work Sites Projects
+
+for dir in $HOME/src/github.com/* $HOME/src $HOME/work $HOME/Sites $HOME/Projects
 do
-  [ -d $HOME/$dir ] && CDPATH=$CDPATH:$HOME/$dir
+  [ -d $dir ] && CDPATH=$CDPATH:$dir
 done
 CDPATH=$CDPATH:$HOME
 export CDPATH

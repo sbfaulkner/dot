@@ -1,2 +1,2 @@
 BREW_PREFIX="`brew --prefix 2>/dev/null`"
-[ -f $BREW_PREFIX/etc/bash_completion ] && . $BREW_PREFIX/etc/bash_completion
+[ -f "$BREW_PREFIX/etc/bash_completion" ] && . "$BREW_PREFIX/etc/bash_completion"

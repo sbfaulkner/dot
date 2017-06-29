@@ -1,14 +1,39 @@
 alias a=alias
 alias ggrep="git rev-list --all | xargs git grep"
 alias h=history
-alias hcurl="curl -o /dev/null -v -s -S -H 'User-Agent: curl/brent'"
 alias knife='BUNDLE_GEMFILE=~/.chef/Gemfile bundle exec knife'
 alias rea=". ~/.bash/plugins/aliases"
 alias tt="touch tmp/restart.txt"
 alias ttt="touch */tmp/restart.txt"
 alias u=unalias
+alias ungron="gron --ungron"
 alias via="vi -f ~/.bash/plugins/aliases && rea"
 alias glog="git log --graph --pretty=oneline"
+
+function hcurl() {
+  if [ $# -gt 0 ]
+  then
+    local _url=$1
+    shift
+    http --follow --all --print=hH $_url User-Agent:curl/brent.faulkner $*
+  else
+    echo hcurl: missing url
+  fi
+}
+
+function showssl() {
+  local _host=$1
+  local _servername=${2:-$_host}
+  local _port=${3:-443}
+
+  if [ $# -gt 0 ]
+  then
+    openssl s_client -showcerts -servername $_servername -connect $_host:$_port </dev/null 2>/dev/null | openssl x509 -noout -text | grep DNS: | sed 's/ *DNS://g' | tr ',' '\n' | sort
+  else
+    echo "usage: showssl <host> [servername [port]]"
+    return 1
+  fi
+}
 
 function who_worked_on() {
   git log --format="%an" -- "$@" | sort | uniq -c | sort -rn
@@ -50,3 +75,26 @@ function check_http_content_new() {
   fi
 }
 
+function s3undelete() {
+  local _file=$1
+  local _bucket=${2:-shopify}
+
+  if [ -z "$_file" ]
+  then
+    echo "ERROR: no file specified"
+    return -1
+  fi
+
+  local _deletemarker=`aws --output text s3api list-object-versions --bucket $_bucket --prefix $_file | grep ^DELETEMARKERS | awk '{ print $5 }'`
+  local _matches=`echo $_deletemarker | wc -w`
+
+  if [ $_matches -eq 1 ]
+  then
+    aws s3api delete-object --bucket $_bucket --key $_file --version-id $_deletemarker
+  elif [ $_matches -gt 1 ]
+  then
+    echo "ERROR: multiple matches found - $_file"
+  else
+    echo "ERROR: file not found - $_file"
+  fi
+}
